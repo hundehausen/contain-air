@@ -31,17 +31,17 @@ LABEL org.opencontainers.image.vendor="Gérczei Tamás E.V."
 COPY --from=builder /wheels /packages
 
 RUN	python -m pip install --no-cache-dir --no-index --find-links=packages/ \
-		click==8.0.1 \
 		CoAPthon3==1.0.2 \
-		Flask==2.0.1 \
-		itsdangerous==2.0.1 \
-		Jinja2==3.0.1 \
 		MarkupSafe==2.0.1 \
-		prometheus-client==0.11.0 \
-		py-air-control==2.3.0 \
-		py-air-control-exporter==0.3.0 \
-		pycryptodomex==3.10.1 \
-		Werkzeug==2.0.1 && \
+		pycryptodomex==3.10.1 && \
+	python -m pip install --no-cache-dir \
+        click==8.0.1 \
+		Werkzeug==2.0.1 \
+		Jinja2==3.0.1 \
+        Flask==2.0.1 \
+        itsdangerous==2.0.1 \
+        py-air-control==2.3.0 \
+		py-air-control-exporter==0.3.0 && \
         rm -rf /packages && \
 	adduser -s /bin/false -S -D python
 
