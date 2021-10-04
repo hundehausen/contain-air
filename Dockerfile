@@ -9,7 +9,7 @@ RUN	apk --update --no-cache add build-base && \
 		MarkupSafe==2.0.1 \
 		prometheus-client==0.11.0 \
 		py-air-control==2.3.0 \
-		py-air-control-exporter==0.3.0 \
+		py-air-control-exporter==0.3.1 \
 		pycryptodomex==3.10.1 \
 		Werkzeug==2.0.1 && \
 	mkdir /wheels/ && \
@@ -21,7 +21,7 @@ ARG BUILD_DATE
 
 LABEL org.opencontainers.image.title="contain-air"
 LABEL org.opencontainers.image.description="Exports Prometheus metrics from Philips smart air purifier devices."
-LABEL org.opencontainers.image.version="0.1.0"
+LABEL org.opencontainers.image.version="0.1.1"
 LABEL org.opencontainers.image.url="https://github.com/hundehausen/contain.air"
 LABEL org.opencontainers.image.authors="hundehausen"
 LABEL org.opencontainers.image.created="${BUILD_DATE}"
@@ -40,7 +40,7 @@ RUN	python -m pip install --no-cache-dir --no-index --find-links=packages/ \
         Flask==2.0.1 \
         itsdangerous==2.0.1 \
         py-air-control==2.3.0 \
-		py-air-control-exporter==0.3.0 && \
+		py-air-control-exporter==0.3.1 && \
         rm -rf /packages && \
 		adduser -s /bin/false -S -D python
 
